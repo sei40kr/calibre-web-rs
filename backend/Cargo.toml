@@ -1,5 +1,5 @@
 [package]
-name = "calibre-web-core-rs"
+name = "calibre-web-rs-backend"
 version = "0.1.0"
 edition = "2021"
 
