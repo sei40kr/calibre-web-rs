@@ -1,5 +1,3 @@
-use std::collections::HashMap;
-
 use chrono::{Date, DateTime, Utc};
 use uuid::Uuid;
 
