@@ -1,4 +1,4 @@
-use chrono::{Date, DateTime, Utc};
+use chrono::{DateTime, NaiveDate, Utc};
 use uuid::Uuid;
 
 pub struct Author {
@@ -162,7 +162,7 @@ pub struct Book {
     pub authors: Vec<Author>,
     pub series: Vec<Series>,
     pub series_index: Option<f32>,
-    pub publication_date: Option<Date<Utc>>,
+    pub publication_date: Option<NaiveDate>,
     pub tags: Vec<Tag>,
     pub publishers: Vec<Publisher>,
     pub languages: Vec<Language>,
@@ -182,7 +182,7 @@ impl Book {
         authors: Vec<Author>,
         series: Vec<Series>,
         series_index: Option<f32>,
-        publication_date: Option<Date<Utc>>,
+        publication_date: Option<NaiveDate>,
         tags: Vec<Tag>,
         publishers: Vec<Publisher>,
         languages: Vec<Language>,
