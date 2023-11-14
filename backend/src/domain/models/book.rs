@@ -174,6 +174,14 @@ pub struct Book {
     pub updated_at: DateTime<Utc>,
 }
 
+pub struct BookCursor {
+    pub uuid: Uuid,
+    pub title: String,
+    pub title_sort: Option<String>,
+    pub rating: Option<Rating>,
+    pub publication_date: Option<NaiveDate>,
+}
+
 impl Book {
     pub fn new(
         uuid: Uuid,
@@ -210,6 +218,18 @@ impl Book {
             has_cover,
             created_at,
             updated_at,
+        }
+    }
+}
+
+impl Into<BookCursor> for Book {
+    fn into(self) -> BookCursor {
+        BookCursor {
+            uuid: self.uuid,
+            title: self.title,
+            title_sort: self.title_sort,
+            rating: self.rating,
+            publication_date: self.publication_date,
         }
     }
 }
