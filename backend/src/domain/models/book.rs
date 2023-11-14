@@ -9,11 +9,45 @@ pub struct Author {
     pub updated_at: DateTime<Utc>,
 }
 
+impl Author {
+    pub fn new(
+        uuid: Uuid,
+        name: String,
+        name_sort: Option<String>,
+        created_at: DateTime<Utc>,
+        updated_at: DateTime<Utc>,
+    ) -> Self {
+        Self {
+            uuid,
+            name,
+            name_sort,
+            created_at,
+            updated_at,
+        }
+    }
+}
+
 pub struct Tag {
     pub uuid: Uuid,
     pub name: String,
     pub created_at: DateTime<Utc>,
     pub updated_at: DateTime<Utc>,
+}
+
+impl Tag {
+    pub fn new(
+        uuid: Uuid,
+        name: String,
+        created_at: DateTime<Utc>,
+        updated_at: DateTime<Utc>,
+    ) -> Self {
+        Self {
+            uuid,
+            name,
+            created_at,
+            updated_at,
+        }
+    }
 }
 
 pub struct Publisher {
@@ -23,6 +57,22 @@ pub struct Publisher {
     pub updated_at: DateTime<Utc>,
 }
 
+impl Publisher {
+    pub fn new(
+        uuid: Uuid,
+        name: String,
+        created_at: DateTime<Utc>,
+        updated_at: DateTime<Utc>,
+    ) -> Self {
+        Self {
+            uuid,
+            name,
+            created_at,
+            updated_at,
+        }
+    }
+}
+
 pub struct Series {
     pub uuid: Uuid,
     pub name: String,
@@ -30,11 +80,43 @@ pub struct Series {
     pub updated_at: DateTime<Utc>,
 }
 
+impl Series {
+    pub fn new(
+        uuid: Uuid,
+        name: String,
+        created_at: DateTime<Utc>,
+        updated_at: DateTime<Utc>,
+    ) -> Self {
+        Self {
+            uuid,
+            name,
+            created_at,
+            updated_at,
+        }
+    }
+}
+
 pub struct Language {
     pub uuid: Uuid,
     pub name: String,
     pub created_at: DateTime<Utc>,
     pub updated_at: DateTime<Utc>,
+}
+
+impl Language {
+    pub fn new(
+        uuid: Uuid,
+        name: String,
+        created_at: DateTime<Utc>,
+        updated_at: DateTime<Utc>,
+    ) -> Self {
+        Self {
+            uuid,
+            name,
+            created_at,
+            updated_at,
+        }
+    }
 }
 
 pub enum IdentifierType {
@@ -47,6 +129,22 @@ pub struct Identifier {
     pub value: String,
     pub created_at: DateTime<Utc>,
     pub updated_at: DateTime<Utc>,
+}
+
+impl Identifier {
+    pub fn new(
+        identifier_type: IdentifierType,
+        value: String,
+        created_at: DateTime<Utc>,
+        updated_at: DateTime<Utc>,
+    ) -> Self {
+        Self {
+            identifier_type,
+            value,
+            created_at,
+            updated_at,
+        }
+    }
 }
 
 pub enum Rating {
@@ -74,4 +172,44 @@ pub struct Book {
     pub has_cover: bool,
     pub created_at: DateTime<Utc>,
     pub updated_at: DateTime<Utc>,
+}
+
+impl Book {
+    pub fn new(
+        uuid: Uuid,
+        title: String,
+        title_sort: Option<String>,
+        authors: Vec<Author>,
+        series: Vec<Series>,
+        series_index: Option<f32>,
+        publication_date: Option<Date<Utc>>,
+        tags: Vec<Tag>,
+        publishers: Vec<Publisher>,
+        languages: Vec<Language>,
+        identifier: Option<Identifier>,
+        rating: Option<Rating>,
+        comment: String,
+        has_cover: bool,
+        created_at: DateTime<Utc>,
+        updated_at: DateTime<Utc>,
+    ) -> Self {
+        Self {
+            uuid,
+            title,
+            title_sort,
+            authors,
+            series,
+            series_index,
+            publication_date,
+            tags,
+            publishers,
+            languages,
+            identifier,
+            rating,
+            comment,
+            has_cover,
+            created_at,
+            updated_at,
+        }
+    }
 }
